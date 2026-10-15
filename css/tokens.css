@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f4ef;
+  --paper-deep: #eeece4;
+  --white: #fffefa;
+  --ink: #1e2522;
+  --ink-soft: #59615b;
+  --muted: #929891;
+  --line: #dcded5;
+  --green: #d7f46a;
+  --green-ink: #324018;
+  --orange: #f1a36e;
+  --lilac: #d9d2f3;
+  --dark: #202824;
+  --dark-soft: #aab3aa;
+  --display: "Manrope", "Arial", sans-serif;
+  --body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+  --max: 1200px;
+  --gutter: clamp(22px, 5vw, 72px);
+  --section-space: clamp(88px, 12vw, 160px);
+  --ease: cubic-bezier(.2,.75,.25,1);
+}
