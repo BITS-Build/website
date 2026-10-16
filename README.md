@@ -2,53 +2,31 @@
 
 **Build. Innovate. Transform.**
 
-A responsive, multi-page website for BITS, built with plain HTML, CSS and JavaScript modules. There is no build step or framework.
+The BITS website is built with Next.js App Router, TypeScript, Tailwind CSS and Motion. It presents BITS as a technology company spanning software, AI, automation, data, digital products and digital growth.
 
-## Pages
+## Routes
 
-- `index.html` — Home
-- `services.html` — Services
-- `work.html` — Project approach
-- `about.html` — About BITS
-- `contact.html` — Contact and project brief
+- `/` — Home
+- `/services` — Capabilities
+- `/work` — Approach
+- `/about` — About BITS
+- `/contact` — Project enquiry
 
-## Structure
+## Develop
 
-```text
-.
-├── index.html
-├── services.html
-├── work.html
-├── about.html
-├── contact.html
-├── styles.css              # CSS entry point
-├── css/
-│   ├── tokens.css          # Colors, type and layout variables
-│   ├── base.css            # Reset, accessible defaults and shared helpers
-│   ├── components.css      # Navigation, cards, forms and footer
-│   └── pages.css           # Page-specific layouts and responsive rules
-└── js/
-    ├── main.js             # Small application entry point
-    ├── config.js           # Site-specific settings
-    └── modules/
-        ├── navigation.js
-        ├── reveal.js
-        ├── visual-effects.js
-        └── contact-form.js
-```
-
-## Run locally
-
-Serve this directory with any static web server. ES modules require HTTP(S), so opening the HTML files directly with `file://` will not run the interactions.
-
-For example, with Python installed:
+Use Node.js 20.9 or newer.
 
 ```sh
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Create a production build with `npm run build`, then serve it with `npm run start`.
 
-## Contact form setup
+## Contact form
 
-The form validates and formats a project enquiry as an email draft. Add BITS's real public inbox to `siteConfig.contactEmail` in `js/config.js` to enable the `mailto:` draft. The site does not send or store submissions.
+The contact form does not send or store submissions. When `NEXT_PUBLIC_BITS_CONTACT_EMAIL` is set to BITS's real public inbox, submitting the form opens a prefilled email draft for the visitor to review and send. Without that setting, the page clearly reports that no message was sent. A real submission backend can be connected later if needed.
+
+## Original static site
+
+The original HTML and CSS pages remain in the repository during the migration. They are retained in Git history and have not been deleted.
