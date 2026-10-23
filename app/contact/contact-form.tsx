@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { GlassButton } from "@/components/glass-button";
+import { blurPointerLight, focusPointerLight, hidePointerLight, showPointerLight, trackPointerLight } from "@/components/pointer-light";
 
 const contactEmail = process.env.NEXT_PUBLIC_BITS_CONTACT_EMAIL ?? "";
 
@@ -31,7 +32,7 @@ export function ContactForm() {
     setMessage("Your email app should open with a draft. Review it and press send; this website does not send it automatically.");
   }
 
-  return <form className="contact-form" onSubmit={handleSubmit}>
+  return <form className="contact-form cursor-light cursor-light--surface" onPointerEnter={showPointerLight} onPointerMove={trackPointerLight} onPointerLeave={hidePointerLight} onFocus={focusPointerLight} onBlur={blurPointerLight} onSubmit={handleSubmit}>
     <div className="field-grid">
       <div className="field"><label htmlFor="name">Your name</label><input id="name" name="name" autoComplete="name" required placeholder="How should we address you?" /></div>
       <div className="field"><label htmlFor="email">Work email</label><input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" /></div>

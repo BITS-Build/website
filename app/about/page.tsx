@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GlassLink } from "@/components/glass-link";
+import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = { title: "About BITS", description: "BITS is a technology company building software, AI and digital systems with intent." };
+export const metadata: Metadata = {
+  title: "About BITS",
+  description: "BITS is a technology company building software, AI and digital systems with intent.",
+};
 
 const beliefs = [
   ["01 / PEOPLE", "Start with people.", "Understand the needs behind the request before choosing the tools."],
@@ -12,5 +16,59 @@ const beliefs = [
 ];
 
 export default function AboutPage() {
-  return <main id="main" className="page-shell"><section className="page-hero container"><p className="eyebrow">03 / About BITS</p><h1 className="page-title">Technology for<br /><em>moving forward.</em></h1><p className="page-intro">BITS is a technology company helping businesses make useful ideas real and everyday systems work better.</p></section><section className="statement-band"><span className="binary-watermark" aria-hidden="true">0101</span><div className="container"><p className="eyebrow">Build. Innovate. Transform.</p><h2>The best technology doesn’t ask for attention. <span className="display-em">It gives people more room to do their best work.</span></h2></div></section><section className="section container"><div className="section-kicker"><b>01</b><span>OUR POINT OF VIEW</span></div><div className="belief-grid">{beliefs.map(([label, title, text]) => <article className="belief" key={label}><span className="index-label">{label}</span><h2>{title}</h2><p>{text}</p></article>)}</div></section><section className="section container"><div className="content-panel"><p className="micro-label muted">BUILD / INNOVATE / TRANSFORM</p><h2>The right next step is often smaller, clearer and more useful than the first idea.</h2><Link className="quiet-link" href="/work">How we work <span aria-hidden="true">↗</span></Link></div></section><section className="closing-cta container"><div><p className="eyebrow">Work with BITS</p><h2>Let’s build something<br /><span className="display-em">that moves you forward.</span></h2></div><GlassLink href="/contact">Start a conversation</GlassLink></section></main>;
+  return (
+    <main id="main" className="page-shell about-page">
+      <section className="page-hero container about-hero" data-flow-stage="0">
+        <p className="eyebrow">03 / About BITS</p>
+        <h1 className="page-title">Technology for<br /><em>moving forward.</em></h1>
+        <div className="about-hero-foot">
+          <p className="page-intro">BITS is a technology company helping businesses make useful ideas real and everyday systems work better.</p>
+          <span className="about-index" aria-hidden="true">B<br />I<br />T<br />S</span>
+        </div>
+      </section>
+
+      <section className="about-manifesto" data-flow-stage="1">
+        <div className="container manifesto-layout">
+          <p className="eyebrow">Build. Innovate. Transform.</p>
+          <div>
+            <p className="manifesto-main">The best technology doesn’t ask for attention.</p>
+            <p className="manifesto-accent">It gives people more room to do their best work.</p>
+            <div className="manifesto-rule"><span>BITS / POINT OF VIEW</span><i /><span>001</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section container beliefs-section" data-flow-stage="2">
+        <div className="beliefs-heading">
+          <div className="section-kicker"><b>01</b><span>OUR POINT OF VIEW</span></div>
+          <p>Good work starts with how people think, decide and get things done.</p>
+        </div>
+        <div className="belief-grid">
+          {beliefs.map(([label, title, text]) => (
+            <Reveal key={label}>
+              <article className="belief">
+                <span className="index-label">{label}</span>
+                <h2>{title}</h2>
+                <p>{text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section container about-practice" data-flow-stage="3">
+        <div className="practice-aside"><span className="micro-label">BUILD / INNOVATE / TRANSFORM</span><span className="practice-mark" aria-hidden="true">0<span>1</span></span></div>
+        <div className="practice-copy">
+          <p className="eyebrow">A working principle</p>
+          <h2>The right next step is often <em>smaller, clearer and more useful</em> than the first idea.</h2>
+          <Link className="quiet-link" href="/work">How we work</Link>
+        </div>
+      </section>
+
+      <section className="closing-cta container" data-flow-stage="4">
+        <div><p className="eyebrow">Work with BITS</p><h2>Let’s build something<br /><span className="display-em">that moves you forward.</span></h2></div>
+        <GlassLink href="/contact">Start a conversation</GlassLink>
+      </section>
+    </main>
+  );
 }
